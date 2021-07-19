@@ -1,6 +1,6 @@
 <?php
 
-include 'models/db_config.php';
+require_once 'models/db_config.php';
 
 
 $name="";
