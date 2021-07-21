@@ -5,6 +5,15 @@ $departments=getAllDepartments();
 $id=$_GET["id"];
 $s=getStudent($id);
 
+// echo "<pre>";
+// print_r($s);
+// echo "</pre>";
+// echo $dept_id;
+
+ // echo "<pre>";
+ // print_r($departments);
+ // echo "</pre>";
+ // echo $dept_id;
  ?>
 <html>
 
@@ -14,6 +23,9 @@ $s=getStudent($id);
       <h5><?php echo $err_db; ?></h5>
 
       <tr>
+        <td>
+           <input name="id" value="<?php echo $s["id"];?>" type="hidden">
+        </td>
         <td >Name</td>
         <td>
           :  <input name="name" value="<?php echo $s["name"];?>" type="text"><br>
@@ -46,26 +58,31 @@ $s=getStudent($id);
         </td>
       <tr>
 
+
       <tr >
-        <td >Department</td>
-        <td >
-          :  <select name="dept_id" value="<?php echo $s["d_name"]; ?>">
-              <!-- <option value='".$d["id"]."'>".$s["d_name"]."</option> -->
-              <option selected disabled>Choose</option>
+           <td >Department</td>
 
-              <?php
-                foreach ($departments as $d) {
-                  echo "<option value='".$d["id"]."'>".$d["name"]."</option>";
-                }
+           <td >
+             :  <select name="dept_id">
+                 <option disabled selected>Choose</option>
 
-               ?>
-             </select>
+                 <?php
+                   // echo id;
+                   foreach ($departments as $d) {
+                       if($d["id"] == $s["dept_id"])
+                         // echo $d["name"];
+                         echo "<option selected value='".$d["id"]."'>".$d["name"]."</option>";
+                       else
+                         echo "<option value='".$d["id"]."'>".$d["name"]."</option>";
 
-          <!-- <input name="department" value="" type="text"><br>
-          <span></span><br> -->
-        </td>
-      <tr>
 
+                   }
+
+                  ?>
+                </select><br>
+                <span><?php echo $err_dept_id;?></span><br>
+           </td>
+      </tr>
       <tr>
         <td align="center"><input type="submit" name="edit_student" value="Edit Student" ></td>
       </tr>

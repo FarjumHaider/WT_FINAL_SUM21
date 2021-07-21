@@ -34,7 +34,7 @@ $students = getAllStudents();
               echo "<td>".$s["dob"]."</td>";
               echo "<td>".$s["credit"]."</td>";
               echo "<td>".$s["cgpa"]."</td>";
-              echo'<td> <a href="edit_student.php?id='.$s["$id"].'">Edit</a> </td>';
+              echo'<td> <a href="edit_student.php?id='.$s["id"].'">Edit</a></td>';
               echo'<td> <a href="">Delete</a> </td>';
             echo "</tr>";
             $i++;
