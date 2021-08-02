@@ -1,0 +1,30 @@
+<script>
+  function get(id) {
+    return docment.getElementById(id);
+
+  }
+  function loadDoc() {
+    var xhr= new XMLHttpRequest();
+    xhr.open("GET","my_profile.php",true);
+    xhr.onreadystatechange=function() {
+      if (this.readyState == 4 && this.status == 200) {
+        get("demo").innerHTML = this.responseText;
+      }
+
+    };
+    xhr.send();
+
+  }
+</script>
+
+<html >
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <button onclick="loadDoc()">Click me</button>
+    <div id="demo">
+
+    </div>
+  </body>
+</html>
