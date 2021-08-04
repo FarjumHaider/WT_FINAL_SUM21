@@ -6,7 +6,7 @@ include 'controllers/CategoryController.php';
 
 <html >
 <body>
-
+  <script src="js/add_category.js"></script>
   <fieldset >
     <form action="" method="post">
       <h1>Add Categories</h1>
@@ -14,8 +14,8 @@ include 'controllers/CategoryController.php';
       <tr>
         <td >Name</td>
         <td>
-          :  <input name="name" value="<?php echo $name;?>" type="text"><br>
-          <span><?php echo $err_name;?></span><br>
+          :  <input name="name" onfocusout="checkCategory(this)" value="<?php echo $name;?>" type="text"><br>
+          <span id="err_name"><?php echo $err_name;?></span><br>
         </td>
 
 

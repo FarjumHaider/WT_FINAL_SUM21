@@ -93,8 +93,9 @@ function updateCategory($name,$id){
   $query="update categories set name='$name' where id=$id";
   return execute($query);
 }
+
 function checkCategory($name){
-  $query="select name from categories where name=$name";
+  $query="select name from categories where name='$name'";
   $rs=get($query);
   if(count($rs)>0){
     return true;
